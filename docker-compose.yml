@@ -17,3 +17,13 @@ services:
     ports:
       - "1883:1883"
       - "9001:9001"
+
+
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /docs/docker/homeassistant/:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8123:8123"
