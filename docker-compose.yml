@@ -1,12 +1,13 @@
 version: '3.0'
 services:
   digitalstrom-mqtt:
-    image: gaetancollaud/digitalstrom-mqtt:dev
-    build: .
+    image: gaetancollaud/digitalstrom-mqtt
+#    build: .
     environment:
       - MQTT_URL=tcp://mosquitto:1883
       - MQTT_RETAIN=true
       - REFRESH_AT_START=true
+      - HOME_ASSISTANT_DISCOVERY_ENABLED=true
     env_file:
       - .env
 
@@ -18,12 +19,11 @@ services:
       - "1883:1883"
       - "9001:9001"
 
-
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - /docs/docker/homeassistant/:/config
+      - ./docs/docker/homeassistant.yaml:/config/configuration.yaml
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "8123:8123"

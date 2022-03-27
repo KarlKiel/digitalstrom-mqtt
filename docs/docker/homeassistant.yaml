@@ -1,0 +1,14 @@
+homeassistant:
+  name: Home
+  latitude: 46.80545440797325
+  longitude: 7.153671393539675
+  elevation: 500
+  unit_system: metric
+  currency: CHF
+  time_zone: "Europe/Zurich"
+#  auth_providers:
+#    - type: trusted_networks
+#      allow_bypass_login: true
+#      trusted_networks:
+#        - 0.0.0.0/0
+#        - fd00::/8
